@@ -1,20 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Lab 4</title>
-    <link src="./style.css" type="text/stylesheet" />
-</head>
-<body>
-    <div>
-        <h1 class="header">Lab 4 Header</h1>
-    </div>
-    <div class="content">
-        hello world
+  <head>
+    <title>Prof A's Demo Page</title>
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="wrapper">
+        <div class="header" id="header1">Prof As Demo Page</div>
+        <button class="button" onclick="clickMe()">
+          Click me to make a change
+        </button>
+        <div class="content" id="div1">
+        
+        </div>
+        <div class="footer"></div>
+      </div>
     </div>
     <script>
+      function clickMe() {
+        const content = document.querySelector(".content");
+        content.innerHTML = "Hello World";
+
+        const name = "henley khranovich";
+        var first = "henley";
+        var last = "khranovich";
+        var count = (first.length) + (last.length);
+
+        //Change the content of the div with class "header" to "[Your name]'s Lab 4"
+        document.getElementById("header1").innerHTML = "Henley Khranovich Lab 4 " + count;
+
+        //Insert two paragraphs into the div with the class "content"
+        //Into the first paragraph, insert the phrase "my name has " and the length of your name
+        var para = document.createElement("P");
+        para.innerHTML = "My name has " + ("header1".length) +" characters.";
+        document.getElementById("div1").appendChild(para);
+        //Second Paragraph
+        var para = document.createElement("P");
+        para.innerHTML = "the third character of my name is " + name.slice(2, 3).toUpperCase() + "<br />" + name.slice(14,17);
+        document.getElementById("div1").appendChild(para);
+        
+
+
+
+        
+
+      }
+
     </script>
-</body>
+  </body>
 </html>
