@@ -101,3 +101,10 @@ h3 {
   position: relative;
   top: 1px;
 }
+
+li{
+  font-weight:bold;
+}
+li > div{
+  font-weight:normal;
+}
