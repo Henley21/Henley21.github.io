@@ -9,14 +9,12 @@ body {
 }
 
 .full-img {
-  top: 50%;
-  left: 50%;
-  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
   display: block;
-  width: 500px;
-  height: 500px;
-  margin-top: -250px;
-  margin-left: -250px;
+  width: 640px;
+  height: 480px;
 }
 
 .overlay {
@@ -73,4 +71,4 @@ button {
       margin: 15px 0 0 0;
   }
 }
-/* Media code from assignment 1 answer key */ 
+/* Media code from assignment 1 answer key */
