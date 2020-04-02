@@ -11,7 +11,10 @@ for (let i = 1; i < 6; i++) {
     newImage.setAttribute('src', 'images/pic' + i + '.jpg')
     thumbBar.appendChild(newImage);
     
-    newImage.onclick = 
+    newImage.onclick = function() {
+        displayedImage.getAttribute('src')
+        displayedImage.setAttribute('src', newImage.src)
+    }
     
 
 }
@@ -23,7 +26,7 @@ function myButton() {
     document.body.appendChild(click);
     //https://www.w3schools.com/jsref/met_document_createelement.asp source
     
-    btn.onclick =
+    //btn.onclick =
 }
 
 //Source: https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onclick
