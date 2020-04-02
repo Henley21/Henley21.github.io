@@ -13,7 +13,7 @@ thumbBar.appendChild(newImage);
 /* Wiring up the Darken/Lighten button */
 function myButton() {
     var click = document.createElement("onClick");
-    click.innerHTML = "Darken";
+    click.innerHTML = "Dark";
     document.body.appendChild(click);
     //https://www.w3schools.com/jsref/met_document_createelement.asp source
 }
