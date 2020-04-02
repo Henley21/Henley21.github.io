@@ -6,9 +6,12 @@ const overlay = document.querySelector('.overlay');
 
 /* Looping through images */
 
-const newImage = document.createElement('img');
-newImage.setAttribute('src', xxx);
-thumbBar.appendChild(newImage);
+for (let i = 1; i < 6; i++) {
+    const newImage = document.createElement('img');
+    newImage.setAttribute('src', 'images/pic' + i + '.jpg')
+    //Source: https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute
+    thumbBar.appendChild(newImage);
+}
 
 /* Wiring up the Darken/Lighten button */
 function myButton() {
