@@ -20,13 +20,8 @@ for (let i = 1; i < 6; i++) {
 }
 
 /* Wiring up the Darken/Lighten button */
-function myButton() {
-    var click = document.createElement("onClick");
-    click.innerHTML = "Dark";
-    document.body.appendChild(click);
-    //https://www.w3schools.com/jsref/met_document_createelement.asp source
-    
-    //btn.onclick =
-}
-
-//Source: https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onclick
+let but = document.getElementById('onClick');
+btn.getAttribute('onClick', xxx);
+btn.textContent = xxx;
+overlay.style.backgroundColor = xxx;
+/*https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Image_gallery */
