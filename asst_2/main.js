@@ -14,7 +14,7 @@ for (let i = 1; i < 6; i++) {
     newImage.onclick = function() {
         displayedImage.getAttribute('src')
         displayedImage.setAttribute('src', newImage.src)
-    }
+    }   //https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onclick
     
 
 }
@@ -30,10 +30,11 @@ for (let i = 1; i < 6; i++) {
         if (btn.getAttribute("class") === "dark") {
             btn.setAttribute("class", "light");
             btn.textContent = "lighten";
-            //overlay div background-color
-        }
-
-    
+            overlay.setAttribute("style", "background-color: rgba(0,0,0,0.5)")
+        } else {
+            btn.setAttribute("class", "dark");
+            btn.textContent = "darken";
+            overlay.setAttribute("style", "background-color: rgba(0,0,0,0)")
+        }   //https://developer.mozilla.org/en-US/docs/Web/API/ElementCSSInlineStyle/style
 }
 
-//Source: https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onclick
