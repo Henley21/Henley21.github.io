@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Home Page</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link href="https://fonts.googleapis.com/css?family=Bebas+Neue|Oswald:300,400&display=swap" rel="stylesheet">
+    <!--<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>-->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+      integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+      crossorigin=""
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+      integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+      crossorigin=""
+    ></script>
+  </head>
+  <body>
+    <div class = "wrapper">
+
+        <!-- TOP-LEVEL HTML ELEMENTS -->
+        <div class = "top-level">
+            <nav>
+              <a href="index.html">HOME</a>
+              <a href="about.html">ABOUT US</a>
+              <a href="documentation.html">DOCUMENTATION</a>
+            </nav>
+            <h1 class = "main-heading"> HOME </h1>
+        </div>
+
+        <!-- MAIN CONTENT HTML ELEMENTS -->
+        <div class = "main-content">
+            <div class = "find">
+                <h2>Find a Market</h2>
+                <div class = "find-box">
+                    <div class = "filter">
+
+                        <p>Days:</p>
+                        <input type = "checkbox" id = "sunday" name = "sunday">
+                        <label for = "sunday">Su</label>
+                        <input type = "checkbox" id = "monday" name = "monday">
+                        <label for = "monday">M</label>
+                        <input type = "checkbox" id = "tuesday" name = "tuesday">
+                        <label for = "tuesday">T</label>
+                        <input type = "checkbox" id = "wednesday" name = "wednesday">
+                        <label for = "wednesday">W</label>
+                        <input type = "checkbox" id = "thursday" name = "thursday">
+                        <label for = "thursday">Th</label>
+                        <input type = "checkbox" id = "friday" name = "friday">
+                        <label for = "friday">F</label>
+                        <input type = "checkbox" id = "saturday" name = "saturday">
+                        <label for = "saturday">Sa</label>
+
+                        <p>Hours of Operation:</p>
+                        <input type="time" id = "time_lower" min="00:00:00" max="24:00:00">
+                        <input type="time" id = "time_upper" min="00:00:00" max="24:00:00">
+                        <label for = "time"></label>
+
+                        <p>Payment Options:</p>
+                        <input type = "checkbox" id = "cash" name = "cash">
+                        <label for = "cash">Cash</label>
+                        <input type = "checkbox" id = "credit" name = "credit">
+                        <label for = "credit">Credit</label>
+                        <input type = "checkbox" id = "wic" name = "wic">
+                        <label for = "wic">WIC</label>
+
+                        <p>Goods Offered:</p>
+                        <input type = "checkbox" id = "bakedgoods" name = "bakedgoods">
+                        <label for = "baked goods">Baked Goods</label>
+                        <input type = "checkbox" id = "cheese" name = "cheese">
+                        <label for = "cheese">Cheese</label>
+                        <input type = "checkbox" id = "crafts" name = "crafts">
+                        <label for = "crafts">Crafts</label>
+                        <input type = "checkbox" id = "eggs" name = "eggs">
+                        <label for = "eggs">Eggs</label>
+                        <input type = "checkbox" id = "flowers" name = "flowers">
+                        <label for = "flowers">Flowers</label>
+                        <input type = "checkbox" id = "herbs" name = "herbs">
+                        <label for = "herbs">Herbs</label><br>
+                        <input type = "checkbox" id = "honey" name = "honey">
+                        <label for = "honey">Honey</label>
+                        <input type = "checkbox" id = "jams" name = "jams">
+                        <label for = "jams">Jams</label>
+                        <input type = "checkbox" id = "maple" name = "maple">
+                        <label for = "maple">Maple</label>
+                        <input type = "checkbox" id = "meat" name = "meat">
+                        <label for = "meat">Meat</label>
+                        <input type = "checkbox" id = "nursery" name = "nursery">
+                        <label for = "nursery">Nursery</label>
+                        <input type = "checkbox" id = "nuts" name = "nuts">
+                        <label for = "nuts">Nuts</label>
+                        <input type = "checkbox" id = "plants" name = "plants">
+                        <label for = "plants">Plants</label><br>
+                        <input type = "checkbox" id = "poultry" name = "poultry">
+                        <label for = "poultry">Poultry</label>
+                        <input type = "checkbox" id = "prep" name = "prep">
+                        <label for = "prep">Prepared</label>
+                        <input type = "checkbox" id = "soap" name = "soap">
+                        <label for = "soap">Soap</label>
+                        <input type = "checkbox" id = "trees" name = "trees">
+                        <label for = "trees">Trees</label>
+                        <input type = "checkbox" id = "veg" name = "veg">
+                        <label for = "veg">Vegetables</label>
+                        <br>
+                        <br>
+                        <input type="submit" value="Filter Results">
+
+
+                    </div>
+
+                    <div class = "results">
+
+                    </div>
+
+
+
+                </div>
+            </div>
+
+            <div class = "map">
+                <h2>Map</h2>
+                <div class = "map-box" id = "map-box"></div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script type="module">
+
+        function marketToProfile(){
+            console.log('It worked!')
+        }
+
+        /*********************/
+        /* JS for Market Map */
+        /*********************/
+
+        // Initializing the map and setting its view to our 
+        // chosen geographical coordinates and a zoom level:
+        const mymap = L.map('map-box').setView([38.9881, -76.9416], 13);
+
+        // Adding a tile layer to the map:
+        L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        maxZoom: 18,
+        id: 'mapbox/streets-v11',
+        tileSize: 512,
+        zoomOffset: -1,
+        accessToken: 'pk.eyJ1IjoibmljaG9sYXNkc3Rld2FydCIsImEiOiJjazhqaHF1d2owMmM1M2ZxNmE5ZjF0dHpuIn0.2OzyXmdy62C4ZZLJtCTI_w'
+        }).addTo(mymap);
+
+        // Creating a marker and pop up:
+        // Code Referenced: https://joshuafrazier.info/leaflet-basics/ */
+        //const customPopup = 'Eppley Recreation Center';
+
+        const customOptions = {
+        'maxWidth': '500',
+        'className' : 'custom'
+        }
+
+        // Fetching data from our own server:
+        fetch("/api", {
+          method: "GET"
+        })
+        .then((data) => data.json())
+        .then((jsonresponse) => {
+            
+            //console.log(jsonresponse["data"])
+
+            const marker_list = [];
+
+            Object.entries(jsonresponse["data"]).map((item) => {
+                //console.log(item[1])
+                /* ADD MARKERS AND POP UPS HERE */
+                marker_list.push(L.marker([item[1]["latitude"], item[1]["longitude"]]).bindPopup(item[1]["name"], customOptions).addTo(mymap).openPopup());
+            })
+
+            for(let i = 0; i < marker_list.length; i++)
+            {
+                marker_list[i].addEventListener("dblclick", marketToProfile)
+            }
+        
+        })
+        
+        
+        //.then(console.log(data.text()))
+        
+        // Listing out all of the data on the client-side:
+        //console.log(res.data)
+
+    </script>
+
+  </body>
+</html>
